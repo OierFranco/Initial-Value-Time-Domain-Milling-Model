@@ -18,8 +18,8 @@ process.operation_type='down_milling'; % Options:    down_milling
 
 % Load pre-defined parameters:
 
-    definition_parameters_SMFE;
-%     definition_parameters_regular_cut;
+%     definition_parameters_SMFE;
+    definition_parameters_regular_cut;
 
 [tool,workpiece]=milling_time_domain_simulation(tool,process,machine,workpiece,solver);
 

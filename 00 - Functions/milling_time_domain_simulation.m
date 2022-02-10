@@ -23,6 +23,7 @@ if strcmp(process.SMFE.Enable,'true') % SMFE process activated
     Velocity_rpm   = Velocity_rad_s.*(60)./(2*pi);
 
     figure(2)
+    subplot(2,1,1)
     plot(solver.time,Velocity_rpm,'Linewidth',2,'DisplayName', 'SMFE');
     hold on
     plot([solver.time(1), solver.time(end)],[Velocity_rpm(1),Velocity_rpm(1)],'k','Linewidth',2,'DisplayName', 'Regular');
@@ -224,9 +225,11 @@ for IdxStep=1:solver.number_of_simulation_steps-1 % loop over all the tool posit
     
 end % END of the main loop
 
-figure; hold on;
-xlabel('time (s)'); ylabel('chip thickness (mm)'); title('chip thickness');
-xlim([solver.time(1), solver.time(end)]);
-    for IdxTooth=1:tool.Z % loop over all the teeth
-plot(solver.time,h_total(:,IdxTooth)*1000,'DisplayName',[ 'Tooth ', num2str(IdxTooth)])
-    end
+figure(2)
+subplot(2,1,2)
+for IdxTooth=1:tool.Z % loop over all the teeth
+    plot(solver.time,h_total(:,IdxTooth)*1000,'DisplayName',[ 'Tooth ', num2str(IdxTooth)])
+    hold on;
+end
+xlabel('time (s)'); ylabel('chip thickness (mm)');
+xlim([solver.time(1), solver.time(end)]); grid on;
