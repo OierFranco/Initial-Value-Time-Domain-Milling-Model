@@ -12,7 +12,7 @@ addpath('01 - Init parameters');
 
 %%
 % Define the type of cutting operation 
-process.operation_type='up_milling'; % Options:    down_milling
+process.operation_type='down_milling'; % Options:    down_milling
                                        %             up_milling 
                                        %             slotting 
 

@@ -22,9 +22,10 @@ if strcmp(process.SMFE.Enable,'true') % SMFE process activated
     Velocity_rad_s = process.N + process.SMFE.Acceleration.*solver.time;
     Velocity_rpm   = Velocity_rad_s.*(60)./(2*pi);
 
-    figure()
-    plot(solver.time,Velocity_rpm,'Linewidth',2);
+    figure(2)
+    plot(solver.time,Velocity_rpm,'Linewidth',2,'DisplayName', 'SMFE');
     hold on
+    plot([solver.time(1), solver.time(end)],[Velocity_rpm(1),Velocity_rpm(1)],'k','Linewidth',2,'DisplayName', 'Regular');
     xlim([solver.time(1), solver.time(end)]);
     ylim([0 max(Velocity_rpm)*1.5])
     xlabel('Time (s)'); ylabel('Spindle speed (rpm)')

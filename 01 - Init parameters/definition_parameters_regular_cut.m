@@ -102,7 +102,7 @@ for IdxMode=1:machine.dynamic.number_of_mode % loop over modes
     end
 end
 %  Plot FRF
-figure; hold on; box on; grid on
+figure(10); hold on; box on; grid on
 for IdxFRF1=1:size(machine.FRF,1)
     for IdxFRF2=1:size(machine.FRF,2)
         plot(machine.frequency_vector,abs(squeeze(machine.FRF(IdxFRF1,IdxFRF2,:))),'DisplayName',strcat('FRF',num2str(IdxFRF1),num2str(IdxFRF2)));
