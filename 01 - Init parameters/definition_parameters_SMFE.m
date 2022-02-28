@@ -16,8 +16,8 @@ tool.VariablePitch.Enable='false';
 tool.VariablePitch.Angles=[0 44 90 134 180 224 270 314 360]*pi/180; % angular position of the teeth (rad)
 
 % run out
-tool.RunOut.Enable='false';
-tool.RunOut=zeros(tool.Z,3);
+tool.RunOut=zeros(tool.Z,3); % difference to the nominal diameter, with negative the tooth is inside (m) 1:diameter 2: zero 3: Z tool displacement 
+% tool.RunOut(1,:) = [0.01 0 0]/1000;
 
 %% Defition of the process
 process.fz   = 0.1/1000;     % feed per tooth (m/tooth)
